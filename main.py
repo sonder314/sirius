@@ -6,16 +6,12 @@ def poland(s):
       stack.append(int(i))
     else:
       if len(stack) == 1:
-      product = calc(stack[-2], stack[-1], i)
-      del stack[-1]
-      del stack[-1]
-      break
-  for i in s:
-    if i.isdigit():
-      stack.append(int(i))
-    else:
-      product = calc(product, stack[-1], i)
-      del stack[-1]
+        product = calc(product, stack[-1], i)
+        stack.pop(stack[-1])
+      else:
+        product = calc(stack[-2], stack[-1], i)
+        del stack[-1]
+        del stack[-1]
   return product
 
 
@@ -25,6 +21,7 @@ def calc(a, b, s):
   elif s == '+':
     return a + b
   return a - b
+
 
 s = '8 9 + 1 7 - *'
 s = ''.join(list(s.split(' ')))
