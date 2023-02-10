@@ -24,12 +24,6 @@ def calc(a, b, s):
     return a + b
   return a - b
 
-s = '8 9 + 1 7 - *'
+s = input()
 s = ''.join(list(s.split(' ')))
-print(poland(s))
-
-
-
-
-
-#(a+b+c)*d = a b c + d*
+print(poland(s)[0])
